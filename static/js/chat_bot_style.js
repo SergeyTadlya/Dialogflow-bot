@@ -112,8 +112,8 @@ cartShow.addEventListener('click', () => {
                     'user_email': document.getElementById("saved-email").innerText,
                 },
                 success: function (data) {},
-                error: function(error) {
-                    console.log('ajax update cart', error);
+                error: function(error, status) {
+                    console.log('ajax update cart', status, error.responseText);
                 }
             });
         }

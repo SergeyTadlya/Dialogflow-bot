@@ -39,8 +39,8 @@ function ManagerConnect(status) {
                 message_block: "message_block",
             }));
         },
-        error: function(error) {
-            console.log('ajax connect manager', error);
+        error: function(error, status) {
+            console.log('ajax connect manager', status, error.responseText);
         }
     });
 }
@@ -80,8 +80,8 @@ function sendManagerMessage() {
                 }));
             }
         },
-        error: function (error) {
-            console.log('ajax send manager answer', error);
+        error: function (error, status) {
+            console.log('ajax send manager answer', status, error.responseText);
         }
     });
 }

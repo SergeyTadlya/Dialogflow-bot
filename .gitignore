@@ -24,3 +24,7 @@ settings/.env
 # Dialogflow statics
 !/static/dialogflow/__init__.json
 /static/dialogflow/*
+
+# Media
+!media
+media/*

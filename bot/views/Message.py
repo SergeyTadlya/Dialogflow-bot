@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from bot.helpers.dialogflow import DialogflowBot
 from bot.helpers.messages import Messages, LastMessage
 from bot.models import MessageHistory, Clients, Chat
+from settings.settings import env
 
 
 def is_ajax(request):
@@ -33,7 +34,7 @@ def send_user_message(request):
             # bot answer from dialogflow (services list)
             response = DialogflowBot.send_message(text_to_be_analyzed)
             # services list (custom answer)
-            if response.query_result.intent.display_name == "Services":
+            if response.query_result.intent.display_name == env('DIALOGFLOW_SERVICES_INTENT_NAME'):
                 services_answer = Messages.services()
                 message_text = services_answer['text']
                 message_block = services_answer['block']
@@ -44,7 +45,7 @@ def send_user_message(request):
 
                 MessageHistory.objects.create(user=user, message=message, type="bot")
             # services list (answer from dialogflow but update info in chat model)
-            elif response.query_result.intent.display_name == "Support":
+            elif response.query_result.intent.display_name == env('DIALOGFLOW_SUPPORT_INTENT_NAME'):
                 message_text = response.query_result.fulfillment_text
                 message_block = Messages.other(message_text)
                 MessageHistory.objects.create(user=user, message=message_text, type="bot")

@@ -1,6 +1,6 @@
 import json
 from channels.generic.websocket import AsyncWebsocketConsumer
-from chat_bot_app.helpers.messages import Messages
+from bot.helpers.messages import Messages
 
 
 class ChatConsumer(AsyncWebsocketConsumer):

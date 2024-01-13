@@ -122,6 +122,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_URL)
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = env("DJANGO_DEFAULT_AUTO_FIELD")
+LOGIN_REDIRECT_URL = 'support/'
 
 # Logger
 LOGGING = {
@@ -169,3 +170,21 @@ LOGGING = {
         },
     }
 }
+
+
+# Websocket
+ASGI_APPLICATION = env("DJANGO_ASGI_APPLICATION")
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": env("DJANGO_CHANNEL_LAYERS_BACKEND")
+    }
+}
+
+
+# Integration widget in another sites
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_METHODS = ['DELETE', 'GET', 'OPTIONS', 'PATCH', 'POST', 'PUT']
+CORS_EXPOSE_HEADERS = ['content-type', 'x-csrftoken']
+CORS_ALLOW_HEADERS = ['accept', 'accept-encoding', 'authorization', 'content-type',
+                      'dnt', 'origin', 'user-agent', 'x-csrftoken', 'x-requested-with',]

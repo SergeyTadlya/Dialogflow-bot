@@ -8,12 +8,10 @@ class DialogflowBot:
     @staticmethod
     def send_message(message):
         """message sent by the user in the chat"""
-        # json_file_url = "D:\Programming\Frameworks\chat_bot\static\dialogflow\mokesciusrautasbot.json"
         json_file_url = env('DIALOGFLOW_JSON_FILE')
         os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = json_file_url
 
         DIALOGFLOW_PROJECT_ID = env('DIALOGFLOW_PROJECT_ID')
-        # DIALOGFLOW_PROJECT_ID = "mokesciusrautasbot-bhn9"
         DIALOGFLOW_LANGUAGE_CODE = 'en'
         SESSION_ID = 'me'
         text_to_be_analyzed = message

@@ -51,8 +51,8 @@ function EmailAjax(email) {
                 document.getElementById('not_valid_email').style = "display: block";
             }
         },
-        error: function(error) {
-            console.log('ajax email', error);
+        error: function(error, status) {
+            console.log('ajax email', status, error.responseText);
         }
     });
 }
@@ -109,8 +109,8 @@ function sendMessage() {
                 }, 2000);
             }
         },
-        error: function(error) {
-            console.log('ajax send message', error);
+        error: function(error, status) {
+            console.log('ajax send message', status, error.responseText);
         }
     });
 }
@@ -166,8 +166,8 @@ function AddToCart(service_id){
             })
             document.getElementById("cart-count").innerText = `${total}`;
         },
-        error: function(error) {
-            console.log('ajax add to cart', error);
+        error: function(error, status) {
+            console.log('ajax add to cart', status, error.responseText);
         }
     });
 }
@@ -201,8 +201,8 @@ document.getElementsByClassName('button--buy')[0].addEventListener('click', () =
             const stripe = Stripe(data.public_key);
             return stripe.redirectToCheckout({ sessionId: data.session_id });
         },
-        error: function(error) {
-            console.log('ajax add to cart', error);
+        error: function(error, status) {
+            console.log('ajax add to cart', status, error.responseText);
         }
     });
 });
