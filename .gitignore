@@ -1,0 +1,26 @@
+# Migrations
+***/migrations/*
+!*/migrations/__init__.py
+
+# Python cache
+*/__pycache__/*
+*.pyc
+
+# Virtual environment
+*env*/
+
+# Dot-env
+settings/.env
+
+# Logging
+*.log
+
+# Database
+*.sqlite3
+
+# IDE
+*.idea
+
+# Dialogflow statics
+!/static/dialogflow/__init__.json
+/static/dialogflow/*

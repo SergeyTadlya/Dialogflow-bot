@@ -1,0 +1,8 @@
+dialogflow==0.5.1
+dialogflow-fulfillment==0.4.5
+Django==4.2
+django-environ==0.10.0
+google-api-core==1.4.1
+google-auth==1.35.0
+googleapis-common-protos==1.59.0
+requests==2.28.2
