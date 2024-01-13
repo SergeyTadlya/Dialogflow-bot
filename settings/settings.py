@@ -33,6 +33,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # my apps
     'bot',
+    # install app
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'channels',
 ]
 
 MIDDLEWARE = [
